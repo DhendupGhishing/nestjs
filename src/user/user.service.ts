@@ -33,7 +33,6 @@ export class UserService {
     }
 
     findUser(username: string): Promise<User> {
-        console.log(this.userRepository.findOneBy({username}))
         return this.userRepository.findOneBy({username})
     }
 
