@@ -8,10 +8,7 @@ export class AuthController {
     @HttpCode(HttpStatus.OK)
     @Post('login')
     signIn(@Body() signInDto: Record<any, any>){
-        const parsedQuery = JSON.parse(signInDto.query);
-        const username = parsedQuery.username;
-        const password = parsedQuery.password;
-        return this.authService.signIn(username, password);
+        return this.authService.signIn(signInDto.username, signInDto.password);
     }
 
     @UseGuards(AuthGuard)
